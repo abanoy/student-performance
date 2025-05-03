@@ -7517,23 +7517,40 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h1 id="DS-220-Project-2-%E2%80%93-Student-Performance-Analysis">DS 220 Project 2 – Student Performance Analysis<a class="anchor-link" href="#DS-220-Project-2-%E2%80%93-Student-Performance-Analysis">¶</a></h1><p><strong>Author</strong>: Albert Banoy, Anjola Ajibola
-<strong>Course</strong>: DS 220-02<br/>
-<strong>Instructor</strong>: Dr. Mathias Fonkam</p>
-<hr/>
-<h2 id="Project-Overview">Project Overview<a class="anchor-link" href="#Project-Overview">¶</a></h2><p>This project analyzes a public dataset of student performance to extract insights that can help students and educators improve academic outcomes. We explore study habits, lifestyle, stress, and performance metrics using Python's Pandas and visualization libraries.</p>
-<h3 id="Questions-Addressed:">Questions Addressed:<a class="anchor-link" href="#Questions-Addressed:">¶</a></h3><ol>
-<li>Do students with higher study hours per week perform better on exams?</li>
-<li>How does sleep duration correlate with final grades?</li>
-<li>Is there a performance difference based on learning style?</li>
-<li>Does discussion participation influence assignment completion or exam score?</li>
-<li>How does social media usage affect stress level or grades?</li>
-<li>Are there gender-based trends in academic performance?</li>
-<li>What is the average exam score per stress level category?</li>
-<li>How do tech users differ in grades from non-tech users?</li>
-<li>What's the distribution of final grades?</li>
-<li>Which factor most strongly correlates with final grade?</li>
+<h1 id="DS-220-Project-2-%E2%80%93-Student-Performance-Analysis"><strong>DS 220 Project 2 – Student Performance Analysis</strong><a class="anchor-link" href="#DS-220-Project-2-%E2%80%93-Student-Performance-Analysis">¶</a></h1><h3 id="Authors:-Albert-Banoy,-Anjola-Ajibola,-Ian-Fong"><strong>Authors</strong>: Albert Banoy, Anjola Ajibola, Ian Fong<a class="anchor-link" href="#Authors:-Albert-Banoy,-Anjola-Ajibola,-Ian-Fong">¶</a></h3><h3 id="Course:-DS-220-02"><strong>Course</strong>: DS 220-02<a class="anchor-link" href="#Course:-DS-220-02">¶</a></h3><h3 id="Instructor:-Dr.-Mathias-Fonkam"><strong>Instructor</strong>: Dr. Mathias Fonkam<a class="anchor-link" href="#Instructor:-Dr.-Mathias-Fonkam">¶</a></h3><hr/>
+<h2 id="Project-Overview"><strong>Project Overview</strong><a class="anchor-link" href="#Project-Overview">¶</a></h2><p>This project aims to analyze a public dataset of student performance to uncover insights that can help improve academic outcomes. By exploring various factors such as study habits, lifestyle, stress levels, and performance metrics, we aim to provide actionable recommendations for students, educators, and policymakers.</p>
+<h3 id="Key-Objectives:"><strong>Key Objectives</strong>:<a class="anchor-link" href="#Key-Objectives:">¶</a></h3><ul>
+<li>Understand the relationship between study habits and academic performance.</li>
+<li>Explore the impact of lifestyle factors such as sleep and social media usage on grades.</li>
+<li>Identify trends and correlations that can inform better teaching and learning strategies.</li>
+</ul>
+<h3 id="Questions-Addressed:"><strong>Questions Addressed</strong>:<a class="anchor-link" href="#Questions-Addressed:">¶</a></h3><ol>
+<li><strong>Do students with higher study hours per week perform better on exams?</strong></li>
+<li><strong>How does sleep duration correlate with final grades?</strong></li>
+<li><strong>Is there a performance difference based on learning style?</strong></li>
+<li><strong>Does discussion participation influence assignment completion or exam score?</strong></li>
+<li><strong>How does social media usage affect stress level or grades?</strong></li>
+<li><strong>Are there gender-based trends in academic performance?</strong></li>
+<li><strong>What is the average exam score per stress level category?</strong></li>
+<li><strong>How do tech users differ in grades from non-tech users?</strong></li>
+<li><strong>What's the distribution of final grades?</strong></li>
+<li><strong>Which factor most strongly correlates with final grade?</strong></li>
 </ol>
+<hr/>
+<h3 id="Tools-and-Libraries-Used:"><strong>Tools and Libraries Used</strong>:<a class="anchor-link" href="#Tools-and-Libraries-Used:">¶</a></h3><ul>
+<li><strong>Pandas</strong>: For data manipulation and analysis.</li>
+<li><strong>Matplotlib</strong> and <strong>Seaborn</strong>: For creating visualizations.</li>
+</ul>
+<h3 id="Dataset-Overview:"><strong>Dataset Overview</strong>:<a class="anchor-link" href="#Dataset-Overview:">¶</a></h3><p>The dataset includes information on students' academic performance, study habits, lifestyle, and stress levels. Key attributes include:</p>
+<ul>
+<li><strong>Study Hours per Week</strong>: Time spent studying.</li>
+<li><strong>Sleep Hours per Night</strong>: Sleep duration.</li>
+<li><strong>Preferred Learning Style</strong>: Visual, auditory, or kinesthetic.</li>
+<li><strong>Participation in Discussions</strong>: Engagement in class discussions.</li>
+<li><strong>Social Media Usage</strong>: Time spent on social media.</li>
+<li><strong>Final Grade</strong>: Letter grade (A, B, C, D, F).</li>
+</ul>
+<p>The dataset is loaded into a Pandas DataFrame for analysis, and various visualizations are used to explore the relationships between these attributes and academic performance.</p>
 </div>
 </div>
 </div>
@@ -7542,20 +7559,21 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import necessary libraries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>  <span class="c1"># For data manipulation and analysis</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># For creating visualizations</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>  <span class="c1"># For advanced visualizations</span>
 
-<span class="c1"># Load dataset</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"student_performance_large_dataset.csv"</span><span class="p">)</span>
-<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Load dataset into a Pandas DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"student_performance_large_dataset.csv"</span><span class="p">)</span>  <span class="c1"># Load the dataset</span>
+<span class="n">df_clean</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Create a copy for cleaning and analysis</span>
 
-<span class="c1"># Encode final grades</span>
-<span class="n">grade_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
-<span class="n">df_clean</span><span class="p">[</span><span class="s2">"Final_Grade_Num"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s2">"Final_Grade"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">grade_map</span><span class="p">)</span>
+<span class="c1"># Encode final grades into numeric values for analysis</span>
+<span class="n">grade_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'A'</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'B'</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'C'</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">'D'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'F'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>  <span class="c1"># Mapping of grades to numeric values</span>
+<span class="n">df_clean</span><span class="p">[</span><span class="s2">"Final_Grade_Num"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_clean</span><span class="p">[</span><span class="s2">"Final_Grade"</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">grade_map</span><span class="p">)</span>  <span class="c1"># Apply mapping</span>
 </pre></div>
 </div>
 </div>
@@ -7568,7 +7586,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="1.-Do-students-with-higher-study-hours-per-week-perform-better-on-exams?">1. Do students with higher study hours per week perform better on exams?<a class="anchor-link" href="#1.-Do-students-with-higher-study-hours-per-week-perform-better-on-exams?">¶</a></h2><p>Yes – there's a clear positive correlation.</p>
+<h2 id="1.-Do-students-with-higher-study-hours-per-week-perform-better-on-exams?">1. Do students with higher study hours per week perform better on exams?<a class="anchor-link" href="#1.-Do-students-with-higher-study-hours-per-week-perform-better-on-exams?">¶</a></h2><p>The scatter plot below shows the relationship between the number of study hours per week and the exam scores of students. Each point represents a student, with the x-axis indicating the number of hours spent studying and the y-axis showing the corresponding exam score percentage.</p>
+<p>From the visualization, we observe a clear positive correlation: students who dedicate more hours to studying tend to achieve higher exam scores. This insight highlights the importance of consistent study habits in academic success.</p>
 </div>
 </div>
 </div>
@@ -7577,14 +7596,15 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"Study_Hours_per_Week"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Exam_Score (%)"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_clean</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Study Hours vs Exam Score"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Study Hours per Week"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Exam Score (%)"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a scatter plot to visualize the relationship between study hours and exam scores</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"Study_Hours_per_Week"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Exam_Score (%)"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_clean</span><span class="p">)</span>  <span class="c1"># Scatter plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Study Hours vs Exam Score"</span><span class="p">)</span>  <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Study Hours per Week"</span><span class="p">)</span>  <span class="c1"># Label x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Exam Score (%)"</span><span class="p">)</span>  <span class="c1"># Label y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display the plot</span>
 </pre></div>
 </div>
 </div>
@@ -7609,7 +7629,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="2.-How-does-sleep-duration-correlate-with-final-grades?">2. How does sleep duration correlate with final grades?<a class="anchor-link" href="#2.-How-does-sleep-duration-correlate-with-final-grades?">¶</a></h2><p>Longer sleep tends to correlate with higher grades.</p>
+<h2 id="2.-How-does-sleep-duration-correlate-with-final-grades?">2. How does sleep duration correlate with final grades?<a class="anchor-link" href="#2.-How-does-sleep-duration-correlate-with-final-grades?">¶</a></h2><p>The box plot below illustrates the relationship between the number of sleep hours per night and the final grades of students. The x-axis represents the letter grades (F to A), while the y-axis shows the average sleep duration in hours.</p>
+<p>The data suggests that students with higher grades (A and B) tend to have longer sleep durations compared to those with lower grades (D and F). This finding emphasizes the role of adequate sleep in maintaining cognitive performance and academic success.</p>
 </div>
 </div>
 </div>
@@ -7618,12 +7639,13 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"Final_Grade"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Sleep_Hours_per_Night"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_clean</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">"F"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Sleep Hours per Night vs Final Grade"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a box plot to visualize the relationship between sleep hours and final grades</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">"Final_Grade"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"Sleep_Hours_per_Night"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_clean</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="p">[</span><span class="s2">"F"</span><span class="p">,</span> <span class="s2">"D"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"B"</span><span class="p">,</span> <span class="s2">"A"</span><span class="p">])</span>  <span class="c1"># Box plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Sleep Hours per Night vs Final Grade"</span><span class="p">)</span>  <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display the plot</span>
 </pre></div>
 </div>
 </div>
@@ -7648,7 +7670,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="3.-Is-there-a-performance-difference-based-on-learning-style?">3. Is there a performance difference based on learning style?<a class="anchor-link" href="#3.-Is-there-a-performance-difference-based-on-learning-style?">¶</a></h2><p>Kinesthetic learners perform slightly better.</p>
+<h2 id="3.-Is-there-a-performance-difference-based-on-learning-style?">3. Is there a performance difference based on learning style?<a class="anchor-link" href="#3.-Is-there-a-performance-difference-based-on-learning-style?">¶</a></h2><p>The bar plot below compares the average exam scores of students based on their preferred learning styles: visual, auditory, or kinesthetic. The x-axis represents the learning styles, and the y-axis shows the average exam scores in percentage.</p>
+<p>Kinesthetic learners, who prefer hands-on learning, exhibit slightly higher average scores compared to visual and auditory learners. This insight can help educators tailor teaching methods to accommodate different learning preferences and improve overall performance.</p>
 </div>
 </div>
 </div>
@@ -7657,14 +7680,15 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Preferred_Learning_Style"</span><span class="p">)[</span><span class="s2">"Exam_Score (%)"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Average Exam Score by Learning Style"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Average Score (%)"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a bar plot to visualize average exam scores by learning style</span>
+<span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Preferred_Learning_Style"</span><span class="p">)[</span><span class="s2">"Exam_Score (%)"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">)</span>  <span class="c1"># Group by learning style and calculate mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Average Exam Score by Learning Style"</span><span class="p">)</span>  <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Average Score (%)"</span><span class="p">)</span>  <span class="c1"># Label y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># Rotate x-axis labels for readability</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display the plot</span>
 </pre></div>
 </div>
 </div>
@@ -7689,7 +7713,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="4.-Does-discussion-participation-influence-assignment-completion-or-exam-score?">4. Does discussion participation influence assignment completion or exam score?<a class="anchor-link" href="#4.-Does-discussion-participation-influence-assignment-completion-or-exam-score?">¶</a></h2><p>Yes – participants perform better on both.</p>
+<h2 id="4.-Does-discussion-participation-influence-assignment-completion-or-exam-score?">4. Does discussion participation influence assignment completion or exam score?<a class="anchor-link" href="#4.-Does-discussion-participation-influence-assignment-completion-or-exam-score?">¶</a></h2><p>The table below summarizes the average assignment completion rates and exam scores for students who participate in discussions versus those who do not. Participation is categorized as 'Yes' or 'No'.</p>
+<p>The results indicate that students who actively participate in discussions tend to have higher assignment completion rates and better exam scores. This finding underscores the value of collaborative learning and active engagement in academic settings.</p>
 </div>
 </div>
 </div>
@@ -7698,10 +7723,11 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Participation_in_Discussions"</span><span class="p">)[[</span><span class="s2">"Assignment_Completion_Rate (%)"</span><span class="p">,</span> <span class="s2">"Exam_Score (%)"</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Group data by discussion participation and calculate mean assignment completion and exam scores</span>
+<span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Participation_in_Discussions"</span><span class="p">)[[</span><span class="s2">"Assignment_Completion_Rate (%)"</span><span class="p">,</span> <span class="s2">"Exam_Score (%)"</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Group by participation</span>
 </pre></div>
 </div>
 </div>
@@ -7712,7 +7738,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[5]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[16]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7766,7 +7792,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="5.-How-does-social-media-usage-affect-stress-level-or-grades?">5. How does social media usage affect stress level or grades?<a class="anchor-link" href="#5.-How-does-social-media-usage-affect-stress-level-or-grades?">¶</a></h2><p>Higher social media usage correlates with more stress and lower grades.</p>
+<h2 id="5.-How-does-social-media-usage-affect-stress-level-or-grades?">5. How does social media usage affect stress level or grades?<a class="anchor-link" href="#5.-How-does-social-media-usage-affect-stress-level-or-grades?">¶</a></h2><p>The table below shows the average time spent on social media (in hours per week) and the average numeric final grades for students grouped by their self-reported stress levels. Stress levels are categorized as low, medium, or high.</p>
+<p>The data reveals that higher social media usage is associated with increased stress levels and lower grades. This insight highlights the potential negative impact of excessive social media use on academic performance and mental well-being.</p>
 </div>
 </div>
 </div>
@@ -7775,10 +7802,11 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Self_Reported_Stress_Level"</span><span class="p">)[[</span><span class="s2">"Time_Spent_on_Social_Media (hours/week)"</span><span class="p">,</span> <span class="s2">"Final_Grade_Num"</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Group data by stress level and calculate mean social media usage and final grades</span>
+<span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Self_Reported_Stress_Level"</span><span class="p">)[[</span><span class="s2">"Time_Spent_on_Social_Media (hours/week)"</span><span class="p">,</span> <span class="s2">"Final_Grade_Num"</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Group by stress level</span>
 </pre></div>
 </div>
 </div>
@@ -7789,7 +7817,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[17]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7848,7 +7876,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="6.-Are-there-gender-based-trends-in-academic-performance?">6. Are there gender-based trends in academic performance?<a class="anchor-link" href="#6.-Are-there-gender-based-trends-in-academic-performance?">¶</a></h2><p>Females score slightly higher on average.</p>
+<h2 id="6.-Are-there-gender-based-trends-in-academic-performance?">6. Are there gender-based trends in academic performance?<a class="anchor-link" href="#6.-Are-there-gender-based-trends-in-academic-performance?">¶</a></h2><p>The table below presents the average exam scores and numeric final grades for male and female students. Gender is categorized as 'Male' or 'Female'.</p>
+<p>The analysis shows that female students, on average, achieve slightly higher exam scores and final grades compared to male students. This trend may reflect differences in study habits, learning approaches, or other factors influencing academic performance.</p>
 </div>
 </div>
 </div>
@@ -7857,10 +7886,11 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Gender"</span><span class="p">)[[</span><span class="s2">"Exam_Score (%)"</span><span class="p">,</span> <span class="s2">"Final_Grade_Num"</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Group data by gender and calculate mean exam scores and final grades</span>
+<span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Gender"</span><span class="p">)[[</span><span class="s2">"Exam_Score (%)"</span><span class="p">,</span> <span class="s2">"Final_Grade_Num"</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Group by gender</span>
 </pre></div>
 </div>
 </div>
@@ -7871,7 +7901,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[7]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[18]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -7930,7 +7960,8 @@ a.anchor-link {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="7.-What-is-the-average-exam-score-per-stress-level-category?">7. What is the average exam score per stress level category?<a class="anchor-link" href="#7.-What-is-the-average-exam-score-per-stress-level-category?">¶</a></h2><p>Lower stress corresponds to higher exam scores.</p>
+<h2 id="7.-What-is-the-average-exam-score-per-stress-level-category?">7. What is the average exam score per stress level category?<a class="anchor-link" href="#7.-What-is-the-average-exam-score-per-stress-level-category?">¶</a></h2><p>The table below displays the average exam scores for students grouped by their self-reported stress levels. Stress levels are categorized as low, medium, or high.</p>
+<p>The results indicate that students with lower stress levels tend to achieve higher exam scores. This finding highlights the importance of stress management in maintaining academic performance and overall well-being.</p>
 </div>
 </div>
 </div>
@@ -7939,10 +7970,11 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Self_Reported_Stress_Level"</span><span class="p">)[</span><span class="s2">"Exam_Score (%)"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Group data by stress level and calculate mean exam scores</span>
+<span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Self_Reported_Stress_Level"</span><span class="p">)[</span><span class="s2">"Exam_Score (%)"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>  <span class="c1"># Group by stress level</span>
 </pre></div>
 </div>
 </div>
@@ -7953,7 +7985,7 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[8]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[19]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Self_Reported_Stress_Level
 High      71.107974
@@ -7971,7 +8003,8 @@ Name: Exam_Score (%), dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="8.-How-do-tech-users-differ-in-grades-from-non-tech-users?">8. How do tech users differ in grades from non-tech users?<a class="anchor-link" href="#8.-How-do-tech-users-differ-in-grades-from-non-tech-users?">¶</a></h2><p>Tech users show a better distribution of grades.</p>
+<h2 id="8.-How-do-tech-users-differ-in-grades-from-non-tech-users?">8. How do tech users differ in grades from non-tech users?<a class="anchor-link" href="#8.-How-do-tech-users-differ-in-grades-from-non-tech-users?">¶</a></h2><p>The table below shows the distribution of final grades for students who use educational technology versus those who do not. The grades are normalized to represent proportions within each group.</p>
+<p>The data suggests that students who use educational technology tend to have a better distribution of grades, with fewer low grades (D and F) and more high grades (A and B). This finding underscores the potential benefits of integrating technology into learning.</p>
 </div>
 </div>
 </div>
@@ -7980,10 +8013,11 @@ Name: Exam_Score (%), dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Use_of_Educational_Tech"</span><span class="p">)[</span><span class="s2">"Final_Grade"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Group data by tech usage and calculate grade distribution</span>
+<span class="n">df_clean</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"Use_of_Educational_Tech"</span><span class="p">)[</span><span class="s2">"Final_Grade"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Group by tech usage</span>
 </pre></div>
 </div>
 </div>
@@ -7994,7 +8028,7 @@ Name: Exam_Score (%), dtype: float64</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[9]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[20]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8056,7 +8090,8 @@ Name: Exam_Score (%), dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="9.-What's-the-distribution-of-final-grades?">9. What's the distribution of final grades?<a class="anchor-link" href="#9.-What's-the-distribution-of-final-grades?">¶</a></h2><p>Most students received a C. F is least common.</p>
+<h2 id="9.-What's-the-distribution-of-final-grades?">9. What's the distribution of final grades?<a class="anchor-link" href="#9.-What's-the-distribution-of-final-grades?">¶</a></h2><p>The bar plot below illustrates the distribution of final grades among students. The x-axis represents the letter grades (A to F), and the y-axis shows the number of students in each grade category.</p>
+<p>The majority of students received a grade of C, while grade F is the least common. This distribution provides an overview of the overall academic performance of the student population.</p>
 </div>
 </div>
 </div>
@@ -8065,14 +8100,15 @@ Name: Exam_Score (%), dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [10]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="p">[</span><span class="s2">"Final_Grade"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Final Grade Distribution"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Grade"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Number of Students"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a bar plot to visualize the distribution of final grades</span>
+<span class="n">df_clean</span><span class="p">[</span><span class="s2">"Final_Grade"</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'bar'</span><span class="p">)</span>  <span class="c1"># Count grades and sort</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Final Grade Distribution"</span><span class="p">)</span>  <span class="c1"># Add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Grade"</span><span class="p">)</span>  <span class="c1"># Label x-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Number of Students"</span><span class="p">)</span>  <span class="c1"># Label y-axis</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># Display the plot</span>
 </pre></div>
 </div>
 </div>
@@ -8097,7 +8133,8 @@ Name: Exam_Score (%), dtype: float64</pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="10.-Which-factor-most-strongly-correlates-with-final-grade?">10. Which factor most strongly correlates with final grade?<a class="anchor-link" href="#10.-Which-factor-most-strongly-correlates-with-final-grade?">¶</a></h2><p>Assignment completion rate, study hours, and attendance top the list.</p>
+<h2 id="10.-Which-factor-most-strongly-correlates-with-final-grade?">10. Which factor most strongly correlates with final grade?<a class="anchor-link" href="#10.-Which-factor-most-strongly-correlates-with-final-grade?">¶</a></h2><p>The table below lists the correlation coefficients between numeric features and the final grade (encoded as a numeric value). The features are sorted in descending order of correlation strength.</p>
+<p>The analysis reveals that assignment completion rate, study hours, and attendance are the factors most strongly correlated with final grades. These findings highlight the importance of consistent effort and engagement in achieving academic success.</p>
 </div>
 </div>
 </div>
@@ -8106,10 +8143,11 @@ Name: Exam_Score (%), dtype: float64</pre>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [11]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df_clean</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"Final_Grade_Num"</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate correlation of numeric features with final grades</span>
+<span class="n">df_clean</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"Final_Grade_Num"</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Calculate correlation</span>
 </pre></div>
 </div>
 </div>
@@ -8120,7 +8158,7 @@ Name: Exam_Score (%), dtype: float64</pre>
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[11]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[22]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>Final_Grade_Num                            1.000000
 Exam_Score (%)                             0.967991
